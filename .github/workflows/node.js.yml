@@ -46,6 +46,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with node
         run: ${{ steps.detect-package-manager.outputs.runner }} npm run build
+      - name: Create a nojekyll file
+        run: touch ./dist/browser/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
